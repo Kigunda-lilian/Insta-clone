@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram.apps.InstagramConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
