@@ -5,13 +5,13 @@ from django.contrib.auth import logout,login,authenticate
 from .forms import UserRegisterForm
 def registration (request):
     if request.method=='POST':
-        form = UserRegisterForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user=form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f'Account created for {username}!')
             return redirect ('home')
     else:
-        form =UserRegisterForm()
-    form=UserRegisterForm()
+        form =UserCreationForm()
+    form=UserCreationForm()
     return render (request, 'users/register.html',context={'form':form})

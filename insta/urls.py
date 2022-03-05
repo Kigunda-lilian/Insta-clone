@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import re_path as url,include
 from django.conf import settings
 from users import views as user_views
@@ -24,6 +25,7 @@ from users import views as user_views
 urlpatterns = [
      url(r'^admin/', admin.site.urls),
      url('register/',user_views.registration,name='register'),
+      url('register/',user_views.registration,name='register'),
      url('',include('instagram.urls')),
 ]
 
