@@ -5,4 +5,4 @@ from django.http  import HttpResponse,Http404
 def home(request):
        
  
-    return render(request, 'home.html')
+    return render(request, 'instagram/home.html')
