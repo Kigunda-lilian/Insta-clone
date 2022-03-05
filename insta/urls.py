@@ -25,7 +25,8 @@ from users import views as user_views
 urlpatterns = [
      url(r'^admin/', admin.site.urls),
      url('register/',user_views.registration,name='register'),
-      url('register/',user_views.registration,name='register'),
+     url('login/',auth_views.LoginView.as_view,name='login'),
+      url('logout/',auth_views.LogoutView.as_view,name='logout'),
      url('',include('instagram.urls')),
 ]
 
