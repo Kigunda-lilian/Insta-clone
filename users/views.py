@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.contrib.auth import logout,login,authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
+from.models import Profile
+from instagram.models import Image
+
 
 
 def registration (request):
@@ -18,6 +21,8 @@ def registration (request):
         form =UserCreationForm()
     form=UserCreationForm()
     return render (request, 'users/register.html',context={'form':form})
+
+
 
 @login_required
 def profile(request):
@@ -42,3 +47,11 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+def user_profile(request,user_id):
+    user_profile = Profile.objects.filter(user_id = user_id).first()
+    images = Image.objects.filter(user_id = user_id)
+
+    return render(request, 'userprofile.html', {'user_profile':user_profile, 'images':images})    
+
+

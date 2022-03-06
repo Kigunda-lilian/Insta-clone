@@ -22,6 +22,12 @@ def home(request):
             
     return render(request, 'instagram/home.html',{"posts":posts,  "form":form, 'users':users})
 
+# def user_profile(request,user_id):
+#     user_profile = Profile.objects.filter(user_id = user_id).first()
+#     images = Image.objects.filter(user_id = user_id)
+
+#     return render(request, 'userprofile.html', {'user_profile':user_profile, 'images':images})    
+
 def search_results(request):
     
     if 'posts' in request.GET and request.GET["posts"]:

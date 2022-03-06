@@ -23,8 +23,13 @@ from django.contrib import admin
 urlpatterns = [
 
     url(r'^$',auth_views.LoginView.as_view(template_name='users/login.html'),name='login'),
+    # url('',views.home,name = 'home'),
     url('home/', views.home, name='home'),
     url('search/', views.search_results,name='search_results'),
+    url('comments/', views.comments,name='comments'),
+    url('like/',views.like_post, name='like_post'),
+    url('accounts/profile/', views.home,name='profilee'),
+    
     
 ]
 

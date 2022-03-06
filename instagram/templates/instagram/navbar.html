@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
       <div class="navbar-nav text-white">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active pl-5 ml-5"  id="name" aria-current="page" href="/">
+            <a class="nav-link active pl-5 ml-5"  id="name" aria-current="page" href="/home">
               <span style="font-family: 'Satisfy', bold; font-size:2rem;"> Instagram </span>
             </a>
           </li>
@@ -54,20 +55,22 @@
   
       <ul class="navbar-nav nav-right">
         <li class="nav-item active">
-          <a class="nav-link" href="/"><i class="fa fa-home"></i></a>
+          <a class="nav-link" href="/home"><i class="fa fa-home"></i></a>
         </li>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user"></i>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Logout</a>
-          {% else %}
-          <a class='dropdown-item' href="/login">Login</a>
-        </div>
+        <li class="nav-item active">
+          <a class="nav-link" href="/"><i class="bi bi-cursor-fill"></i></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/"><i class="bi bi-plus-square"></i></i></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/"><i class="bi bi-heart"></i></i></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/profile"><i class="fa fa-user"></i></a>
+        </li>
+        
+        
       </ul>
   
   

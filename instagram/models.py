@@ -45,6 +45,8 @@ class Image(models.Model):
     
 reactions={('Like','Like'),('Unlike','Unlike')}
         
+        
+
 class Comment(models.Model):
     comment = models.CharField(max_length=300)
     image = models.ForeignKey(Image,on_delete = models.CASCADE,related_name='comments')
