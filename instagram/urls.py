@@ -24,6 +24,7 @@ urlpatterns = [
 
     url(r'^$',auth_views.LoginView.as_view(template_name='users/login.html'),name='login'),
     url('home/', views.home, name='home'),
+    url('search/', views.search_results,name='search_results'),
     
 ]
 

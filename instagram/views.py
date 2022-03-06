@@ -34,3 +34,16 @@ def search_results(request):
     else:
         message = "You have not searched for any term"
         return render(request, 'instagram/search.html',{"message":message})
+    
+@login_required
+def comments(request,image_id):
+  form = CommentForm()
+  image = Image.objects.filter(pk = image_id).first()
+  if request.method == 'POST':
+    form = CommentForm(request.POST)
+    if form.is_valid():
+      comment = form.save(commit = False)
+      comment.user = request.user
+      comment.image = image
+      comment.save() 
+  return redirect('home') 
