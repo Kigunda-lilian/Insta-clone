@@ -26,3 +26,8 @@ class Image(models.Model):
     def update_caption(self, new_caption):
         self.caption = new_caption
         self.save()
+        
+class Comment(models.Model):
+    comment = models.CharField(max_length=250)
+    image = models.ForeignKey(Image,on_delete = models.CASCADE,related_name='comments')
+    user = models.ForeignKey(User,on_delete = models.CASCADE,related_name='comments')
