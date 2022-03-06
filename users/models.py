@@ -21,12 +21,12 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    # def save(self):
+    #     super().save()
 
-        img = Image.open(self.image.path)
+    #     img = Image.open(self.image.path)
 
-        if img.height > 280 or img.width > 280:
-            output_size = (280, 280)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    #     if img.height > 280 or img.width > 280:
+    #         output_size = (280, 280)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)

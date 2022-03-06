@@ -10,7 +10,7 @@ def registration (request):
     if request.method=='POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            user=form.save()
+            form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f'Account created for {username}! You are now able to login')
             return redirect ('login')
