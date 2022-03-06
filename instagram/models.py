@@ -27,7 +27,39 @@ class Image(models.Model):
         self.caption = new_caption
         self.save()
         
+    @classmethod
+    def search_by_name(cls,search_term):
+        posts = cls.objects.filter(name__icontains=search_term)
+        return posts
+    
+    @property
+    def saved_comments(self):
+        return self.comments.all()
+    
+    @property
+    def saved_likes(self):
+      return self.postslikes.count()
+    
+    def __str__(self):
+        return self.name
+    
+reactions={('Like','Like'),('Unlike','Unlike')}
+        
 class Comment(models.Model):
-    comment = models.CharField(max_length=250)
+    comment = models.CharField(max_length=300)
     image = models.ForeignKey(Image,on_delete = models.CASCADE,related_name='comments')
     user = models.ForeignKey(User,on_delete = models.CASCADE,related_name='comments')
+    
+    
+    @classmethod
+    def display_comment(cls,image_id):
+        comments = cls.objects.filter(image_id = image_id)
+        return comments
+    
+class Like(models.Model):
+    response = models.CharField(choices=reactions,default='like',max_length=70)
+    image = models.ForeignKey(Image,on_delete = models.CASCADE)
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return self.response
