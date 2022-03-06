@@ -21,3 +21,16 @@ def home(request):
             return redirect('home')
             
     return render(request, 'instagram/home.html',{"posts":posts,  "form":form, 'users':users})
+
+def search_results(request):
+    
+    if 'posts' in request.GET and request.GET["posts"]:
+        search_term = request.GET.get("posts")
+        searched_posts = Image.search_by_name(search_term)
+        message = search_term
+
+        return render(request, 'instagram/search.html',{"message":message,"posts": searched_posts})
+
+    else:
+        message = "You have not searched for any term"
+        return render(request, 'instagram/search.html',{"message":message})
