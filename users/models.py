@@ -6,7 +6,7 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    bio = models.TextField(max_length=650,blank=True,null=True)
+    bio = models.TextField(max_length=400,blank=True,null=True)
     
     def save_profile(self):
         self.save()
