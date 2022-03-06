@@ -47,3 +47,27 @@ def comments(request,image_id):
       comment.image = image
       comment.save() 
   return redirect('home') 
+
+def like_post(request):
+    current_user = request.user
+    
+    if request.method == 'POST':
+        image_id = request.POST.get('image_id')
+        image = Image.objects.get(id=image_id)
+        
+        if current_user in image.liked.all():
+            image.liked.add(current_user)
+        else:
+            image.liked.add(current_user)
+            
+        like,created = Like.objects.get_or_create(user=current_user,image_id=image_id)  
+        
+        if not created:
+            if like.response == 'Like':
+                like.response = 'Unlike'
+                
+        else:
+                like.response = 'Like' 
+                
+        like.save()
+    return redirect('home')
