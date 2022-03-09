@@ -85,6 +85,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'django_referrer_policy.middleware.ReferrerPolicyMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -185,6 +186,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL ='login'
+
+# REFERRER_POLICY ='origin'
 
 django_heroku.settings(locals())
 
