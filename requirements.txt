@@ -5,9 +5,13 @@ backports.zoneinfo==0.2.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
 defusedxml==0.7.1
+dj-database-url==0.5.0
 Django==4.0.3
 django-bootstrap==0.2.4
 django-crispy-forms==1.14.0
+django-dotenv==1.4.2
+django-environ==0.8.1
+django-heroku==0.3.1
 docutils==0.17.1
 gitdb==4.0.9
 GitPython==3.1.27
@@ -23,6 +27,7 @@ Pillow==9.0.1
 psycopg2==2.9.3
 Pygments==2.11.2
 pyparsing==3.0.7
+python-decouple==3.6
 python-dotenv==0.19.2
 pytz==2021.3
 requests==2.27.1
@@ -37,4 +42,5 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 sqlparse==0.4.2
 urllib3==1.26.8
+whitenoise==6.0.0
 zipp==3.7.0
