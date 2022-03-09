@@ -78,16 +78,16 @@ def like_post(request):
         like.save()
     return redirect('home')
 
-# @login_required()
-# def upload(request):
-#     if request.method == 'POST' and request.FILES['image']:
-#         form = AddPostForm(request.POST, request.FILES)
+@login_required()
+def upload(request):
+    if request.method == 'POST' and request.FILES['image']:
+        form = AddPostForm(request.POST, request.FILES)
 
-#         if form.is_valid():
-#             image = form.save(commit=False)
-#             image.user = request.user
-#             image.save()
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = request.user
+            image.save()
 
-#             return redirect(request.META.get('HTTP_REFERER'), {'success': 'Image Uploaded Successfully'})
+            return redirect(request.META.get('HTTP_REFERER'), {'success': 'Image Uploaded Successfully'})
 
-#     return redirect(request.META.get('HTTP_REFERER'), {'error': 'Image Uploaded Successfully'})
+    return redirect(request.META.get('HTTP_REFERER'), {'error': 'Image Uploaded Successfully'})
