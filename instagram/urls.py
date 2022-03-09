@@ -29,6 +29,7 @@ urlpatterns = [
     url('comments/', views.comments,name='comments'),
     url('like/',views.like_post, name='like_post'),
     url('accounts/profile/', views.home,name='profilee'),
+    url('upload', views.upload, name="upload"),
     
     
 ]

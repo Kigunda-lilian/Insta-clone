@@ -19,7 +19,8 @@ def registration (request):
             return redirect ('login')
     else:
         form =UserCreationForm()
-    form=UserCreationForm()
+    # form=UserCreationForm()
+    
     return render (request, 'users/register.html',context={'form':form})
 
 
@@ -47,6 +48,7 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
 
 def user_profile(request,user_id):
     user_profile = Profile.objects.filter(user_id = user_id).first()
